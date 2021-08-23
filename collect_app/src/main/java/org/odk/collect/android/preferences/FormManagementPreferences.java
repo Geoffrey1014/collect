@@ -15,6 +15,7 @@
 package org.odk.collect.android.preferences;
 
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import androidx.annotation.Nullable;
@@ -24,11 +25,14 @@ import org.odk.collect.android.R;
 import org.odk.collect.android.application.Collect;
 import org.odk.collect.android.tasks.ServerPollingJob;
 
+import timber.log.Timber;
+
 import static org.odk.collect.android.preferences.AdminKeys.ALLOW_OTHER_WAYS_OF_EDITING_FORM;
 import static org.odk.collect.android.preferences.GeneralKeys.KEY_AUTOMATIC_UPDATE;
 import static org.odk.collect.android.preferences.GeneralKeys.KEY_AUTOSEND;
 import static org.odk.collect.android.preferences.GeneralKeys.KEY_CONSTRAINT_BEHAVIOR;
 import static org.odk.collect.android.preferences.GeneralKeys.KEY_GUIDANCE_HINT;
+import static org.odk.collect.android.preferences.GeneralKeys.KEY_HIDE_OLD_FORM_VERSIONS;
 import static org.odk.collect.android.preferences.GeneralKeys.KEY_IMAGE_SIZE;
 import static org.odk.collect.android.preferences.GeneralKeys.KEY_PERIODIC_FORM_UPDATES_CHECK;
 import static org.odk.collect.android.preferences.PreferencesActivity.INTENT_KEY_ADMIN_MODE;
@@ -56,6 +60,7 @@ public class FormManagementPreferences extends BasePreferenceFragment {
         initListPref(KEY_AUTOSEND);
         initListPref(KEY_IMAGE_SIZE);
         initGuidancePrefs();
+        initCheckBoxPref(KEY_HIDE_OLD_FORM_VERSIONS);
     }
 
     @Override
@@ -71,6 +76,23 @@ public class FormManagementPreferences extends BasePreferenceFragment {
             toolbar.setTitle(R.string.general_preferences);
         }
     }
+
+    private void initCheckBoxPref(String key) {
+        final CheckBoxPreference pref = (CheckBoxPreference) findPreference(key);
+        if (pref != null) {
+            pref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object o) {
+//                    if(o.equals(true)) {
+//                        Timber.tag("Themis").i("initCheckBoxPref : step 4: 勾选 HIDE_OLD_FORM_VERSIONS");
+//                    }
+                    Timber.tag("Themis").i("initCheckBoxPref : step 4: 勾选 HIDE_OLD_FORM_VERSIONS");
+                    return true;
+                }
+            });
+        }
+    }
+
 
     private void initListPref(String key) {
         final ListPreference pref = (ListPreference) findPreference(key);

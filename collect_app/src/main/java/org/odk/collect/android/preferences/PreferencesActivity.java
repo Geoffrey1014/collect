@@ -24,6 +24,8 @@ import org.odk.collect.android.application.Collect;
 import org.odk.collect.android.listeners.OnBackPressedListener;
 import org.odk.collect.android.utilities.ThemeUtils;
 
+import timber.log.Timber;
+
 public class PreferencesActivity extends CollectAbstractActivity {
 
     public static final String TAG = "GeneralPreferencesFragment";
@@ -57,6 +59,8 @@ public class PreferencesActivity extends CollectAbstractActivity {
         if (onBackPressedListener != null) {
             onBackPressedListener.doBack();
         } else {
+            // 回退了两步
+            Timber.tag("Themis").i("step 5: click ‘Back’");
             super.onBackPressed();
         }
     }

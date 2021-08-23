@@ -122,6 +122,7 @@ public class MainMenuActivity extends CollectAbstractActivity {
         enterDataButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                Timber.tag("Themis").i("step 6: click ‘Fill Blank Form’");
                 if (Collect.allowClick(getClass().getName())) {
                     Intent i = new Intent(getApplicationContext(),
                             FormChooserList.class);
@@ -410,6 +411,7 @@ public class MainMenuActivity extends CollectAbstractActivity {
                 return true;
             case R.id.menu_general_preferences:
                 startActivity(new Intent(this, PreferencesActivity.class));
+                Timber.tag("Themis").i("step 1&2: click 'general settings'");
                 return true;
             case R.id.menu_admin_preferences:
                 String pw = adminPreferences.getString(

@@ -25,6 +25,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -229,7 +231,13 @@ public class FormChooserList extends FormListActivity implements
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor cursor) {
         hideProgressBarIfAllowed();
-        listAdapter.swapCursor(cursor);
+        try {
+            listAdapter.swapCursor(cursor);
+        }catch (IllegalArgumentException e){
+            Timber.tag("Themis").i("onLoadFinished: step last ");
+            throw e;
+        }
+
     }
 
     @Override

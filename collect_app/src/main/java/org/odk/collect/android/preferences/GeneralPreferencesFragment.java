@@ -27,6 +27,8 @@ import java.util.Collection;
 
 import androidx.annotation.Nullable;
 
+import timber.log.Timber;
+
 import static org.odk.collect.android.preferences.PreferencesActivity.INTENT_KEY_ADMIN_MODE;
 
 public class GeneralPreferencesFragment extends BasePreferenceFragment implements Preference.OnPreferenceClickListener {
@@ -79,6 +81,8 @@ public class GeneralPreferencesFragment extends BasePreferenceFragment implement
                 break;
             case "form_management":
                 basePreferenceFragment = FormManagementPreferences.newInstance(adminMode);
+                Timber.tag("Themis").i("step 3: click 'form_management'");
+
                 break;
             case "user_and_device_identity":
                 basePreferenceFragment = IdentityPreferences.newInstance(adminMode);
