@@ -19,6 +19,7 @@ package org.odk.collect.android.preferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.util.Log;
 import android.view.View;
 
 import org.odk.collect.android.R;
@@ -81,7 +82,7 @@ public class GeneralPreferencesFragment extends BasePreferenceFragment implement
                 break;
             case "form_management":
                 basePreferenceFragment = FormManagementPreferences.newInstance(adminMode);
-                Timber.tag("Themis").i("step 3: click 'form_management'");
+                Log.i("Themis", "Event 2: Clicked \"Form management\" in \"General settings\".");
 
                 break;
             case "user_and_device_identity":

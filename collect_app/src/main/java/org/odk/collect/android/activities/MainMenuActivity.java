@@ -28,6 +28,7 @@ import android.os.Message;
 import android.preference.PreferenceManager;
 import androidx.appcompat.widget.Toolbar;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -122,7 +123,7 @@ public class MainMenuActivity extends CollectAbstractActivity {
         enterDataButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Timber.tag("Themis").i("step 6: click ‘Fill Blank Form’");
+                Log.i("Themis", "Event 5: Clicked \"Fill Blank Form\" in the main page.");
                 if (Collect.allowClick(getClass().getName())) {
                     Intent i = new Intent(getApplicationContext(),
                             FormChooserList.class);
@@ -411,7 +412,7 @@ public class MainMenuActivity extends CollectAbstractActivity {
                 return true;
             case R.id.menu_general_preferences:
                 startActivity(new Intent(this, PreferencesActivity.class));
-                Timber.tag("Themis").i("step 1&2: click 'general settings'");
+                Log.i("Themis", "Event 1: Clicked \"General settings\" in the options.");
                 return true;
             case R.id.menu_admin_preferences:
                 String pw = adminPreferences.getString(

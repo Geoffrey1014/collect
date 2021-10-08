@@ -17,6 +17,7 @@
 package org.odk.collect.android.preferences;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import org.odk.collect.android.R;
 import org.odk.collect.android.activities.CollectAbstractActivity;
@@ -60,7 +61,7 @@ public class PreferencesActivity extends CollectAbstractActivity {
             onBackPressedListener.doBack();
         } else {
             // 回退了两步
-            Timber.tag("Themis").i("step 5: click ‘Back’");
+            Log.i("Themis", "Event 4: Back.");
             super.onBackPressed();
         }
     }

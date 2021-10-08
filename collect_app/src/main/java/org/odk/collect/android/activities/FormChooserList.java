@@ -234,7 +234,7 @@ public class FormChooserList extends FormListActivity implements
         try {
             listAdapter.swapCursor(cursor);
         }catch (IllegalArgumentException e){
-            Timber.tag("Themis").i("onLoadFinished: step last ");
+            Log.i("Themis", "Crash!: IllegalArgumentException.");
             throw e;
         }
 

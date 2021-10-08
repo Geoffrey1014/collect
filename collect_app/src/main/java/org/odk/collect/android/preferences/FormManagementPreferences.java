@@ -19,6 +19,8 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import androidx.annotation.Nullable;
+
+import android.util.Log;
 import android.view.View;
 
 import org.odk.collect.android.R;
@@ -83,10 +85,11 @@ public class FormManagementPreferences extends BasePreferenceFragment {
             pref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object o) {
-//                    if(o.equals(true)) {
-//                        Timber.tag("Themis").i("initCheckBoxPref : step 4: 勾选 HIDE_OLD_FORM_VERSIONS");
-//                    }
-                    Timber.tag("Themis").i("initCheckBoxPref : step 4: 勾选 HIDE_OLD_FORM_VERSIONS");
+                    if ((boolean) o) {
+                        Log.i("Themis", "Warning 3: Enabled \"Hide old form versions\" in \"Form management\".");
+                    } else {
+                        Log.i("Themis", "Event 3: Disabled \"Hide old form versions\" in \"Form management\".");
+                    }
                     return true;
                 }
             });
