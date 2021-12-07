@@ -87,8 +87,10 @@ public class FormManagementPreferences extends BasePreferenceFragment {
                 public boolean onPreferenceChange(Preference preference, Object o) {
                     if ((boolean) o) {
                         Log.i("Themis", "Warning 3: Enabled \"Hide old form versions\" in \"Form management\".");
+                        Log.i("Themis", "Event 6: Enabled \"Hide old form versions\" in \"Form management\".");
                     } else {
                         Log.i("Themis", "Event 3: Disabled \"Hide old form versions\" in \"Form management\".");
+
                     }
                     return true;
                 }
