@@ -123,7 +123,7 @@ public class MainMenuActivity extends CollectAbstractActivity {
         enterDataButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("Themis", "Event 5: Clicked \"Fill Blank Form\" in the main page.");
+                Log.i("Themis", "Event 4: Clicked \"Fill Blank Form\" in the main page.");
                 if (Collect.allowClick(getClass().getName())) {
                     Intent i = new Intent(getApplicationContext(),
                             FormChooserList.class);

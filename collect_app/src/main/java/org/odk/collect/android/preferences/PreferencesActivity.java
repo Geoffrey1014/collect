@@ -61,7 +61,7 @@ public class PreferencesActivity extends CollectAbstractActivity {
             onBackPressedListener.doBack();
         } else {
             // 回退了两步
-            Log.i("Themis", "Event 4: Back.");
+//            Log.i("Themis", "Event 4: Back.");
             super.onBackPressed();
         }
     }
